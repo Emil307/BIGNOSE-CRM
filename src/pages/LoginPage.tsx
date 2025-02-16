@@ -1,29 +1,18 @@
-import { login } from "@/api/authApi";
+import authState from "@/store/authState";
+import { observer } from "mobx-react-lite";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export const LoginPage: React.FC = () => {
+export const LoginPage: React.FC = observer(() => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
 
   function handleSubmit(event: React.ChangeEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    setIsLoading(true);
-
-    login({ email: email, password: password })
-      .then((res) => {
-        navigate("/profile");
-      })
-      .catch((e) => {
-        console.log(e);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
+    authState.login({ email: email, password: password }, navigate);
   }
 
   return (
@@ -38,7 +27,7 @@ export const LoginPage: React.FC = () => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button disabled={isLoading}>Войти</button>
+      <button disabled={authState.isLoading}>Войти</button>
     </form>
   );
-};
+});
