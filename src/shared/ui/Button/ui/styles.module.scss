@@ -1,0 +1,10 @@
+.root,
+.root:active {
+  border-radius: 0.5rem;
+  color: var(--main-white);
+  background: var(--main-green);
+}
+
+.root:hover {
+  background: var(--main-green);
+}

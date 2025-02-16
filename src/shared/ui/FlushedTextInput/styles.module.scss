@@ -1,0 +1,23 @@
+.root {
+  height: 3.25rem;
+}
+
+.input {
+  border-bottom: 1px solid var(--addable-gray);
+  height: 28px;
+
+  font: var(--font-lg);
+  font-weight: 400;
+}
+
+.label {
+  font: var(--font-sm);
+  opacity: 0.5;
+}
+
+.error {
+  font: var(--font-m);
+}
+
+.error > p {
+}

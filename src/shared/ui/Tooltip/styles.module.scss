@@ -1,0 +1,11 @@
+.tooltip {
+  width: 100%;
+  max-width: 320px;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  background-color: var(--main-white);
+  outline: 1px solid var(--addable-gray);
+
+  font: var(--font-m);
+  color: #000;
+}

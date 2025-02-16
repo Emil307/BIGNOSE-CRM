@@ -1,0 +1,35 @@
+.root {
+  position: relative;
+  margin-top: 5px;
+  width: 100%;
+}
+
+.input {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom-width: 1px;
+  border-color: var(--addable-gray);
+  border-radius: 0;
+  padding-left: 0;
+  background: none;
+
+  font: var(--font-lg);
+  font-weight: 400;
+}
+
+.input:focus {
+  background: none;
+}
+
+.input::placeholder {
+}
+
+.label {
+  font: var(--font-sm);
+  opacity: 0.5;
+}
+
+.dropdown {
+  border: none;
+}

@@ -1,0 +1,11 @@
+.root,
+.root:active {
+  border-radius: 0.5rem;
+  border: 1px solid var(--addable-gray);
+  color: var(--main-green);
+  background: transparent;
+}
+
+.root:hover {
+  background: transparent;
+}
