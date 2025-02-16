@@ -14,7 +14,7 @@ export const LoginPage: React.FC = () => {
 
     setIsLoading(true);
 
-    login(email, password)
+    login({ email: email, password: password })
       .then((res) => {
         navigate("/profile");
       })

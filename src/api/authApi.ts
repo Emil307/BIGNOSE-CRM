@@ -1,10 +1,8 @@
 import { $api } from "@/shared";
+import { LoginRequestDTO } from "./types";
 
-export const login = async (email: string, password: string) => {
-  const response = await $api.post(`/api/employees/login/`, {
-    email: email,
-    password: password,
-  });
+export const login = async (data: LoginRequestDTO) => {
+  const response = await $api.post(`/api/employees/login/`, data);
 
   return response;
 };
