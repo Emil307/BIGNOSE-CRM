@@ -6,3 +6,9 @@ export const login = async (data: LoginRequestDTO) => {
 
   return response;
 };
+
+export const logout = async () => {
+  const response = await $api.get(`/api/employees/logout/`);
+
+  return response;
+};

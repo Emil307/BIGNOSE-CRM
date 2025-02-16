@@ -1,6 +1,6 @@
 import authState from "@/store/authState";
 import { observer } from "mobx-react-lite";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const LoginPage: React.FC = observer(() => {
@@ -8,6 +8,13 @@ export const LoginPage: React.FC = observer(() => {
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    authState.checkAuth(navigate);
+    if (authState.isAuth) {
+      navigate("/profile");
+    }
+  }, [authState.isAuth]);
 
   function handleSubmit(event: React.ChangeEvent<HTMLFormElement>) {
     event.preventDefault();
