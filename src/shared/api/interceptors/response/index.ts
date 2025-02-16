@@ -1,6 +1,6 @@
 import axios from "axios";
 import { $api } from "../../default";
-import { getCookie } from "shared";
+import { getCookie } from "@/shared";
 
 export const refreshRequest = async (error: any) => {
   const originalRequest = error.config;

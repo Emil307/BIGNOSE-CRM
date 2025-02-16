@@ -1,4 +1,4 @@
-import { TAxiosRequestInterceptorSuccess } from "shared";
+import { TAxiosRequestInterceptorSuccess } from "@/shared";
 
 export const tokenInterceptor: TAxiosRequestInterceptorSuccess = (config) => {
   const token = localStorage.getItem("token");

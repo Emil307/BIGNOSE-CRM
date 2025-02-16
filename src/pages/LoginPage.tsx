@@ -1,13 +1,29 @@
+import { login } from "@/api/authApi";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const LoginPage: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const navigate = useNavigate();
 
   function handleSubmit(event: React.ChangeEvent<HTMLFormElement>) {
     event.preventDefault();
-    console.log(email);
-    console.log(password);
+
+    setIsLoading(true);
+
+    login(email, password)
+      .then((res) => {
+        navigate("/profile");
+      })
+      .catch((e) => {
+        console.log(e);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   }
 
   return (
@@ -22,7 +38,7 @@ export const LoginPage: React.FC = () => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button>Войти</button>
+      <button disabled={isLoading}>Войти</button>
     </form>
   );
 };
